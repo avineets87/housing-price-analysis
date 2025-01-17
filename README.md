@@ -2,12 +2,12 @@
 
 ## Project Objective and Goals
 **Objective:**  
-The goal of this project is to analyze housing prices in New York City and uncover the factors that most significantly influence property prices. We aim to build predictive models to forecast housing prices and provide insights into the housing market.
+The objective of this project is to conduct a comprehensive analysis of housing prices in New York City, identifying key factors that drive property valuations. Our goal is to develop predictive models capable of forecasting housing prices and generating actionable insights into the dynamics of the New York City housing market.
 
 **Goals:**  
-1. **Identify Key Factors:** Determine the primary factors affecting housing prices (location, size, amenities, etc.).
+1. **Identify Key Factors:** Determine the primary factors affecting housing prices (beds, bath, property sqft, borough, property category,	type).
 2. **Price Prediction:** Build regression models to predict housing prices based on features.
-3. **Classify Housing Types:** Develop a classification model to categorize properties based on pricing categories (e.g., luxury, affordable, etc.).
+3. **Classify Housing Types:** Develop a classification model to categorize properties based on pricing categories.
 
 ---
 
@@ -87,5 +87,5 @@ The goal of this project is to analyze housing prices in New York City and uncov
 ## Next Steps
 
 1. **Improve Model Performance:**
-   - **Hyperparameter Tuning:** Tune the regression and classification models for better performance using grid search and cross-validation.
-   - **Advanced Models:** Explore advanced models like **Gradient Boosting Machines (GBM)** or
+   - **Additional Data:** This will enhance the model's ability to capture complex relationships and provide more accurate predictions, as a broader dataset can improve its generalizability and robustness.
+   - **More Features:** One example of such a feature could be proximity to city center. This can also be accomplished through further data collection.
