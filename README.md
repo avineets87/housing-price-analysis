@@ -23,11 +23,12 @@ The goal of this project is to analyze housing prices in New York City and uncov
 ## Data Gathering Approach
 
 ### **Kaggle Housing Dataset**
-- **Source:** The primary dataset was obtained from Kaggle, which contains information on NYC housing prices, including features like property size, number of rooms, neighborhood, and price.
-- **Key Features:** Property size, number of bedrooms, bathrooms, location (borough and neighborhood), amenities (e.g., parking, gym).
+- **Source:** The primary dataset was obtained from Kaggle, which contains information on NYC housing prices, including features like property size, number of rooms, neighborhood, and price. https://www.kaggle.com/code/alancano/new-york-housing-market 
+- **Key Features:** Property size, number of bedrooms, number of bathrooms, locality, sub locality and geo location parameters
 
 ### **Reverse Geolocation API**
-- **Purpose:** We used a reverse geolocation API to enrich the dataset with borough and neighborhood information based on geographic coordinates (latitude/longitude).
+- **Purpose:** We used a reverse geolocation API to enrich the dataset with borough and neighborhood information based on geographic coordinates (latitude/longitude). 
+- Example: https://api.geoapify.com/v1/geocode/reverse?lat=40.618103&lon=-74.0369047&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658 
 - **Rationale:** This allowed us to group properties by specific geographic areas and perform better spatial analysis on price trends.
 
 ---
