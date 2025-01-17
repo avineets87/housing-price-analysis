@@ -35,11 +35,76 @@ The objective of this project is to conduct a comprehensive analysis of housing 
 
 ## Data Exploration
 
-- **Descriptive Statistics:** We calculated the mean, median, and standard deviation for key features (e.g., price, square footage).
-- **Visualizations:**
-  - **Price Distribution:** Histogram to visualize the distribution of housing prices across NYC.
-  - **Price vs. Features:** Scatter plots to explore relationships between price and features like square footage and number of bedrooms.
-  - **Correlation Matrix:** A heatmap to examine correlations between numeric variables and identify highly influential features.
+### **Descriptive Statistics**
+To get a better understanding of the dataset, we started by calculating basic descriptive statistics for key variables such as price, square footage, number of bedrooms, and the type of property. The summary statistics provide insight into the distribution of data, including measures of central tendency (mean, median) and variability (standard deviation, min, max).
+
+**Descriptive Statistics:**
+![Data Summary](./visualizations/data.describe.png)
+*Above: A summary of the key statistics for the housing data, including price, square footage, and the number of bedrooms.*
+
+---
+
+### **Geographical Distribution of Properties**
+We visualized the geographical distribution of properties across New York City. The plot shows how properties are distributed across different boroughs and neighborhoods. It also helps identify areas with higher concentrations of real estate activity.
+
+**Geo Distribution of Properties:**
+![Geographical Distribution](./visualizations/geo_distribution.png)
+*Above: A visualization showing the geographical distribution of properties across NYC.*
+
+---
+
+### **Price vs. Property Size**
+We examined the relationship between the price of properties and their size (measured in square footage). The plot helps us understand if larger properties tend to be more expensive, or if other factors play a significant role in pricing.
+
+**Price vs. Property Size:**
+![Price vs Property Size](./visualizations/price_vs_propertysize.png)
+*Above: A scatter plot showing the relationship between property size and price.*
+
+---
+
+### **Property Type Counts (Without Outliers)**
+Outliers in property type counts were removed to get a clearer view of the distribution of property types across the dataset. This helps identify the most common types of properties and eliminates any extreme values that may distort the analysis.
+
+**Property Type Counts (Without Outliers):**
+![Property Type Counts Without Outliers](./visualizations/property_type_counts_without_outliers.png)
+*Above: A bar chart displaying the counts of different property types, excluding outliers.*
+
+---
+
+### **Property Type Counts**
+This visualization shows the distribution of property types in the dataset, including the outliers. It helps in identifying trends, such as the most common types of properties (e.g., apartments, houses).
+
+**Property Type Counts (With Outliers):**
+![Property Type Counts](./visualizations/property_type_counts.png)
+*Above: A bar chart displaying the counts of different property types, including outliers.*
+
+---
+
+### **Property Price vs. Neighborhoods**
+To analyze how property prices vary across different neighborhoods in New York City, we plotted the price of properties against the neighborhoods they belong to. This visualization reveals how neighborhood location is a significant factor in property pricing.
+
+**Property Price vs. Neighborhoods:**
+![Property Price vs Neighborhood](./visualizations/property_vs_neighbourhoods.png)
+*Above: A plot showing how property prices vary across different neighborhoods in NYC.*
+
+---
+
+### **SPLOM (Scatter Plot Matrix) of Real Estate Data**
+We performed a scatter plot matrix (SPLOM) to visually assess the relationships between multiple variables in the dataset (e.g., price, square footage, number of bedrooms, etc.). This helps us identify potential correlations and patterns among different features.
+
+**SPLOM of Real Estate Data:**
+![SPLOM of Real Estate Data](./visualizations/splom_real_estate_data.png)
+*Above: A scatter plot matrix showing pairwise relationships between key features in the real estate dataset.*
+
+---
+
+### Summary of Findings
+- **Geographical Insights:** The geographic distribution of properties highlights that most real estate activity is concentrated in Manhattan and parts of Brooklyn, with fewer listings in less urbanized areas of the city.
+- **Price and Size:** Larger properties tend to have higher prices, but the relationship is not perfectly linear, indicating other factors contribute to pricing.
+- **Property Types:** The distribution of property types shows that apartments are the most common type of property in NYC, followed by houses and condos.
+- **Neighborhood Impact:** Property prices are heavily influenced by the neighborhood, with prime areas such as Manhattan and parts of Brooklyn commanding higher prices.
+- **Feature Relationships:** The SPLOM visualization revealed that property size and price have a moderate positive correlation, while other features, like the number of bedrooms, have varying levels of influence on price.
+
 
 ---
 
