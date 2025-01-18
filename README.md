@@ -126,7 +126,6 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
   - Converting text to lowercase for columns such as `SUBLOCALITY` and `STATE`.
 - **Outcome**: Renamed redundant columns for improved clarity.
 
-
 ### 3. Handling Missing Data
 - **Action**: 
   - Dropped rows with missing values in critical columns (`TYPE`, `PROPERTY_CATEGORY`).
