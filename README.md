@@ -110,6 +110,7 @@ We performed a scatter plot matrix (SPLOM) to visually assess the relationships 
 
 ## Data Cleaning Process
 
+<<<<<<< HEAD
 This part focuses on cleaning and analyzing a real estate dataset. The main objective is to remove inconsistencies, handle missing data, standardize columns, and remove outliers, preparing the dataset for further analysis and predictive modeling.
 
 ### 1. **Merging and Removing Duplicates**
@@ -154,6 +155,23 @@ This part focuses on cleaning and analyzing a real estate dataset. The main obje
 
 The data cleaning process successfully removed extreme outliers, standardized column values, and addressed missing data. The cleaned dataset is now ready for deeper analysis or predictive modeling.
 
+<<<<<<< HEAD
+=======
+
+=======
+### **Missing Data**
+- Imputation was used to handle missing values in non-essential columns (e.g., missing amenities information).
+- Properties with significant missing data were removed.
+
+### **Outliers**
+- We identified and handled outliers using z-scores and IQR methods, adjusting or removing extreme outliers where necessary to ensure model accuracy.
+
+### **Feature Engineering**
+- Created new features such as price per square foot and neighborhood categories.
+- One-hot encoding was applied to categorical features like neighborhood and property type.
+>>>>>>> 791555f17a1e5e7fc5379c961207860d6c86f4b5
+
+>>>>>>> 8997aaceedd35cd7cb180232583cae27467901ad
 ---
 
 ## Regression Model and Results
@@ -169,6 +187,7 @@ The data cleaning process successfully removed extreme outliers, standardized co
 
 ---
 
+<<<<<<< HEAD
 ## **Classification Model and Results**
 
 ---
@@ -341,6 +360,18 @@ The **Random Forest Classifier** was selected for its robustness and capability 
 3. **XGBoost** delivered the best results with perfect accuracy, precision, recall, and F1-scores across all classes.
 ---
 Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving perfect accuracy of 100%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the ideal choice for this classification task. By utilizing `SQFT_CATEGORY` as the target, the model provides valuable insights into property size zones and their market significance.
+=======
+## Classification Model and Results
+
+### **Approach:**
+- **Model:** We built a **Random Forest Classifier** to categorize properties into pricing brackets (e.g., Low, Medium, High) based on key features.
+- **Evaluation Metrics:** We used **Accuracy**, **Precision**, **Recall**, and **F1 Score** for model evaluation.
+
+### **Results:**
+- **Accuracy:** 0.78 – meaning 78% of the time, the model correctly predicted the price category.
+- **Precision and Recall:** High precision for the "High Price" category, indicating good detection of luxury properties.
+- **Model Insights:** The classification model revealed that properties with specific amenities (e.g., parking, gyms) and those in certain high-demand neighborhoods were most likely to fall into the "High Price" category.
+>>>>>>> 791555f17a1e5e7fc5379c961207860d6c86f4b5
 
 ---
 
