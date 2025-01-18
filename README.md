@@ -108,13 +108,9 @@ We performed a scatter plot matrix (SPLOM) to visually assess the relationships 
 
 ---
 
-## Data Cleanup
+## Data Cleaning Process
 
 The objective of this section is to clean and analyze a real estate dataset. This involves removing inconsistencies, handling missing data, standardizing columns, and eliminating outliers, thereby preparing the dataset for further analysis and predictive modeling.
-
----
-
-## Data Cleaning Process
 
 ### 1. Merging and Removing Duplicates
 - **Action**: Merged datasets based on `LATITUDE` and `LONGITUDE` columns.
