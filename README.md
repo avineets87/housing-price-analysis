@@ -108,11 +108,9 @@ We performed a scatter plot matrix (SPLOM) to visually assess the relationships 
 
 ---
 
-## Data Cleanup
+## Data Cleaning Process
 
 This part focuses on cleaning and analyzing a real estate dataset. The main objective is to remove inconsistencies, handle missing data, standardize columns, and remove outliers, preparing the dataset for further analysis and predictive modeling.
-
-## Data Cleaning Process
 
 ### 1. **Merging and Removing Duplicates**
 - Merged the datasets based on `LATITUDE` and `LONGITUDE` columns.
@@ -139,67 +137,13 @@ This part focuses on cleaning and analyzing a real estate dataset. The main obje
 
 ## Data Interpretation
 
-### **Before Cleaning:**
-- **PRICE**:
-  - Min: $3,225
-  - Max: Over $2 billion
-  - Mean: $730,000
-  - **Comment**: Extreme outliers present, with some properties priced unrealistically.
-
-- **BEDS**:
-  - Min: 1
-  - Max: 50
-  - Mean: 3.4
-  - **Comment**: Some properties had a high number of bedrooms, likely due to data entry errors.
-
-- **BATH**:
-  - Min: 0
-  - Max: 50
-  - Mean: 2.2
-  - **Comment**: Some properties had 0 or more than 10 bathrooms, which are uncommon.
-
-- **PROPERTYSQFT**:
-  - Min: 230 sqft
-  - Max: 65,535 sqft
-  - Mean: 1,400 sqft
-  - **Comment**: The square footage had large discrepancies, indicating outliers.
-
-- **PRICE_PER_SQFT**:
-  - Min: $225
-  - Max: $2,000,000
-  - Mean: $500
-  - **Comment**: Price per square foot showed unrealistic extremes.
-
-### **After Cleaning:**
-- **PRICE**:
-  - Min: $50,000
-  - Max: $2.8 million
-  - Mean: $805,000
-  - **Comment**: The extreme outliers were removed, resulting in more realistic price ranges.
-
-- **BEDS**:
-  - Min: 1
-  - Max: 7
-  - Mean: 3.2
-  - **Comment**: The number of bedrooms is now within a typical range.
-
-- **BATH**:
-  - Min: 1
-  - Max: 4
-  - Mean: 2.1
-  - **Comment**: The number of bathrooms is now more realistic.
-
-- **PROPERTYSQFT**:
-  - Min: 230 sqft
-  - Max: 3,733 sqft
-  - Mean: 1,765 sqft
-  - **Comment**: Square footage is now more consistent and realistic.
-
-- **PRICE_PER_SQFT**:
-  - Min: $1.48
-  - Max: $1,201
-  - Mean: $488
-  - **Comment**: Price per square foot is now within a reasonable range.
+| **Metric**        | **Before Cleaning**                                | **After Cleaning**                              |
+|-------------------|---------------------------------------------------|-------------------------------------------------|
+| **PRICE**         | **Min**: $3,225<br>**Max**: Over $2 billion<br>**Mean**: $730,000<br>**Comment**: Extreme outliers present, with some properties priced unrealistically. | **Min**: $50,000<br>**Max**: $2.8 million<br>**Mean**: $805,000<br>**Comment**: Extreme outliers removed, resulting in more realistic price ranges. |
+| **BEDS**          | **Min**: 1<br>**Max**: 50<br>**Mean**: 3.4<br>**Comment**: Some properties had a high number of bedrooms, likely due to data entry errors. | **Min**: 1<br>**Max**: 7<br>**Mean**: 3.2<br>**Comment**: Number of bedrooms now within a typical range. |
+| **BATH**          | **Min**: 0<br>**Max**: 50<br>**Mean**: 2.2<br>**Comment**: Some properties had 0 or more than 10 bathrooms, which are uncommon. | **Min**: 1<br>**Max**: 4<br>**Mean**: 2.1<br>**Comment**: Number of bathrooms now more realistic. |
+| **PROPERTYSQFT**  | **Min**: 230 sqft<br>**Max**: 65,535 sqft<br>**Mean**: 1,400 sqft<br>**Comment**: Square footage had large discrepancies, indicating outliers. | **Min**: 230 sqft<br>**Max**: 3,733 sqft<br>**Mean**: 1,765 sqft<br>**Comment**: Square footage now more consistent and realistic. |
+| **PRICE_PER_SQFT**| **Min**: $225<br>**Max**: $2,000,000<br>**Mean**: $500<br>**Comment**: Price per square foot showed unrealistic extremes. | **Min**: $1.48<br>**Max**: $1,201<br>**Mean**: $488<br>**Comment**: Price per square foot now within a reasonable range. |
 
 ---
 
@@ -209,8 +153,6 @@ This part focuses on cleaning and analyzing a real estate dataset. The main obje
 ![Data Cleaning Summary](Clean.png)
 
 The data cleaning process successfully removed extreme outliers, standardized column values, and addressed missing data. The cleaned dataset is now ready for deeper analysis or predictive modeling.
-
-
 
 ---
 
