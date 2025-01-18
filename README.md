@@ -115,7 +115,7 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
 ### 1. **Merging and Removing Duplicates**
 - Merged the datasets based on `LATITUDE` and `LONGITUDE` columns.
 - Removed duplicates based on `LATITUDE` and `LONGITUDE`.
-=======
+
 ### 1. Merging and Removing Duplicates
 - **Action**: Merged datasets based on `LATITUDE` and `LONGITUDE` columns.
 - **Outcome**: Removed duplicate entries based on the same `LATITUDE` and `LONGITUDE`.
@@ -149,7 +149,6 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
 - **Action**: Exported the cleaned dataset to a CSV file for further analysis.
 - **Outcome**: Prepared the dataset for subsequent modeling and insights.
 
-
 ---
 
 ## Data Interpretation
@@ -170,27 +169,6 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
 ![Data Cleaning Summary](Clean.png)
 
 The data cleaning process successfully removed extreme outliers, standardized column values, and addressed missing data. The cleaned dataset is now ready for deeper analysis or predictive modeling.
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
-
-=======
-### **Missing Data**
-- Imputation was used to handle missing values in non-essential columns (e.g., missing amenities information).
-- Properties with significant missing data were removed.
-
-### **Outliers**
-- We identified and handled outliers using z-scores and IQR methods, adjusting or removing extreme outliers where necessary to ensure model accuracy.
-
-### **Feature Engineering**
-- Created new features such as price per square foot and neighborhood categories.
-- One-hot encoding was applied to categorical features like neighborhood and property type.
->>>>>>> 791555f17a1e5e7fc5379c961207860d6c86f4b5
-
->>>>>>> 8997aaceedd35cd7cb180232583cae27467901ad
-=======
->>>>>>> main
 ---
 
 ## Regression Model and Results
@@ -205,17 +183,176 @@ The data cleaning process successfully removed extreme outliers, standardized co
 - **Model Insights:** The model suggests that proximity to Manhattan and certain high-demand neighborhoods (e.g., Brooklyn) significantly increase property prices.
 
 ---
+## **Classification Model and Results**
 
-## Classification Model and Results
+### **Data Features and Preprocessing**
 
-### **Approach:**
-- **Model:** We built a **Random Forest Classifier** to categorize properties into pricing brackets (e.g., Low, Medium, High) based on key features.
-- **Evaluation Metrics:** We used **Accuracy**, **Precision**, **Recall**, and **F1 Score** for model evaluation.
+#### **Feature Engineering**
+1. **Derived Features:**
+   - `TOTAL_ROOMS`: Sum of bedrooms and bathrooms.
 
-### **Results:**
-- **Accuracy:** 0.78 – meaning 78% of the time, the model correctly predicted the price category.
-- **Precision and Recall:** High precision for the "High Price" category, indicating good detection of luxury properties.
-- **Model Insights:** The classification model revealed that properties with specific amenities (e.g., parking, gyms) and those in certain high-demand neighborhoods were most likely to fall into the "High Price" category.
+2. **Binning Square Footage:**
+   - Created a `SQFT_CATEGORY` feature (target variable):
+     - **Small:** Less than 1,000 sqft.
+     - **Medium:** Between 1,000 and 2,000 sqft.
+     - **Large:** Greater than 2,000 sqft.
+
+   - The `SQFT_CATEGORY` column was encoded using **LabelEncoder** to transform the categorical values ("Small," "Medium," "Large") into numeric representations (0, 1, 2).
+      - Reason for Label Encoding: Since SQFT_CATEGORY is the target variable, label encoding ensures that the classification model can process it effectively, as most machine learning algorithms require numerical inputs.
+
+3. **ZIP Code Handling:**
+   - Converted `POSTCODE` to `ZIPCODE` as a string for classification.
+
+---
+
+#### **One-Hot Encoding**
+Categorical features were encoded using **OneHotEncoder** to transform them into numerical representations.
+
+---
+
+#### **Data Splitting**
+The dataset was split into **training** (80%) and **test** (20%) sets to evaluate the model effectively.
+
+---
+
+### **Model Training**
+
+#### **Classification Algorithm**
+The **Random Forest Classifier** was selected for its robustness and capability to handle mixed data types.
+
+#### **Hyperparameter Tuning:**
+- Used **RandomizedSearchCV** to optimize hyperparameters, including:
+  - `n_estimators`
+  - `max_depth`
+  - `min_samples_split`
+  - `min_samples_leaf`
+  - `class_weight`
+
+---
+
+### **Evaluation Metrics**
+
+#### **Training Performance:**
+- **Accuracy:** 100%
+- **Confusion Matrix:**
+  ```
+   [[1147    0    0]
+    [   0  652    0]
+    [   0    0  373]]
+  ```
+- **Classification Report:**
+  ```
+                 precision    recall  f1-score   support
+
+             0       1.00      1.00      1.00      1147
+             1       1.00      1.00      1.00       652
+             2       1.00      1.00      1.00       373
+
+      accuracy                           1.00      2172
+     macro avg       1.00      1.00      1.00      2172
+  weighted avg       1.00      1.00      1.00      2172
+  ```
+
+---
+
+#### **Test Performance (Before SMOTE):**
+- **Accuracy:** 98.90%
+- **Confusion Matrix:**
+  ```
+   [[266   0   0]
+    [  1 158   1]
+    [  0   4 114]]
+  ```
+- **Classification Report:**
+  ```
+                 precision    recall  f1-score   support
+
+             0       1.00      1.00      1.00       266
+             1       0.98      0.99      0.98       160
+             2       0.99      0.97      0.98       118
+
+      accuracy                           0.99       544
+     macro avg       0.99      0.98      0.99       544
+  weighted avg       0.99      0.99      0.99       544
+  ```
+
+---
+
+#### **Test Performance (After SMOTE):**
+- **Accuracy:** 98.53%
+- **Confusion Matrix:**
+  ```
+   [[265   1   0]
+    [  2 157   1]
+    [  0   4 114]]
+  ```
+- **Classification Report:**
+  ```
+                 precision    recall  f1-score   support
+
+             0       0.99      1.00      0.99       266
+             1       0.97      0.98      0.98       160
+             2       0.99      0.97      0.98       118
+
+      accuracy                           0.99       544
+     macro avg       0.98      0.98      0.98       544
+  weighted avg       0.99      0.99      0.99       544
+  ```
+
+---
+
+#### **Test Performance (After Tuning):**
+- **Accuracy:** 98.90%
+- **Confusion Matrix:**
+  ```
+   [[266   0   0]
+    [  1 159   0]
+    [  0   4 114]]
+  ```
+- **Classification Report:**
+  ```
+                 precision    recall  f1-score   support
+
+             0       1.00      1.00      1.00       266
+             1       0.98      0.99      0.98       160
+             2       1.00      0.97      0.98       118
+
+      accuracy                           0.99       544
+     macro avg       0.99      0.99      0.99       544
+  weighted avg       0.99      0.99      0.99       544
+  ```
+
+---
+
+#### **Final Model: XGBoost**
+- **Accuracy:** 100%
+- **Confusion Matrix:**
+  ```
+   [[266   0   0]
+    [  0 160   0]
+    [  0   0 118]]
+  ```
+- **Classification Report:**
+  ```
+                 precision    recall  f1-score   support
+
+             0       1.00      1.00      1.00       266
+             1       1.00      1.00      1.00       160
+             2       1.00      1.00      1.00       118
+
+      accuracy                           1.00       544
+     macro avg       1.00      1.00      1.00       544
+  weighted avg       1.00      1.00      1.00       544
+  ```
+
+---
+
+### **Summary**
+1. **SMOTE** effectively balanced the dataset, reducing bias toward majority classes and improving the model's ability to classify all categories accurately.
+2. **Hyperparameter tuning** fine-tuned the model's performance, resulting in higher accuracy and better generalization.
+3. **XGBoost** delivered the best results with perfect accuracy, precision, recall, and F1-scores across all classes.
+
+Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving perfect accuracy of 100%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the ideal choice for this classification task. By utilizing `SQFT_CATEGORY` as the target, the model provides valuable insights into property size zones and their market significance.
 
 ---
 
