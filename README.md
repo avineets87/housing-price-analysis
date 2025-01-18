@@ -112,7 +112,6 @@ We performed a scatter plot matrix (SPLOM) to visually assess the relationships 
 
 The objective of this section is to clean and analyze a real estate dataset. This involves removing inconsistencies, handling missing data, standardizing columns, and eliminating outliers, thereby preparing the dataset for further analysis and predictive modeling.
 
-<<<<<<< HEAD
 ### 1. **Merging and Removing Duplicates**
 - Merged the datasets based on `LATITUDE` and `LONGITUDE` columns.
 - Removed duplicates based on `LATITUDE` and `LONGITUDE`.
@@ -126,7 +125,6 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
   - Stripping leading and trailing spaces.
   - Converting text to lowercase for columns such as `SUBLOCALITY` and `STATE`.
 - **Outcome**: Renamed redundant columns for improved clarity.
->>>>>>> main
 
 ### 3. Handling Missing Data
 - **Action**: 
