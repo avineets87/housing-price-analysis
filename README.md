@@ -166,7 +166,7 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
 ## Visual Comparison
 
 ### Before Cleaning and After Cleaning:
-![Data Cleaning Summary](Clean.png)
+![Data Cleaning Summary](/visualizations/CLean.png)
 
 The data cleaning process successfully removed extreme outliers, standardized column values, and addressed missing data. The cleaned dataset is now ready for deeper analysis or predictive modeling.
 ---
@@ -207,13 +207,8 @@ The data cleaning process successfully removed extreme outliers, standardized co
 
 #### **One-Hot Encoding**
 Categorical features were encoded using **OneHotEncoder** to transform them into numerical representations.
-
----
-
 #### **Data Splitting**
 The dataset was split into **training** (80%) and **test** (20%) sets to evaluate the model effectively.
-
----
 
 ### **Model Training**
 
