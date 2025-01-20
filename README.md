@@ -62,12 +62,12 @@ We examined the relationship between the price of properties and their size (mea
 
 ---
 
-### **Property Type Counts (Without Outliers)**
-Outliers in property type counts were removed to get a clearer view of the distribution of property types across the dataset. This helps identify the most common types of properties and eliminates any extreme values that may distort the analysis.
+### **Price vs. Property Sizes (Without Outliers)**
+Outliers were removed to get a clearer view across the dataset. 
 
-**Property Type Counts (Without Outliers):**
-![Property Type Counts Without Outliers](./visualizations/property_type_counts_without_outliers.png)
-*Above: A bar chart displaying the counts of different property types, excluding outliers.*
+**Price vs. Property Sizes (Without Outliers):**
+![Price vs. Property Sizes (Without Outliers)](./visualizations/price_vs_propertysize_without_outliers.png)
+*Above: A scatter plot showing the relationship between property size and price, excluding outliers.*
 
 ---
 
