@@ -169,18 +169,93 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
 ![Data Cleaning Summary](/visualizations/CLean.png)
 ---
 The data cleaning process successfully removed extreme outliers, standardized column values, and addressed missing data. The cleaned dataset is now ready for deeper analysis or predictive modeling.
+
 ---
 
 ## Regression Model and Results
 
 ### **Approach:**
-- **Model:** We built a **Linear Regression** model to predict housing prices based on numeric features such as square footage, number of bedrooms, and neighborhood.
-- **Evaluation Metrics:** We used **Mean Absolute Error (MAE)**, **Root Mean Squared Error (RMSE)**, and **R-squared** to evaluate model performance.
+- **Model:** We built a **Linear Regression** models to predict housing prices based on numeric features such as square footage, number of bedrooms,bathrooms and neighborhood.
+  
+  **GridSearchCV** was used for optimizing machine learning models, and to allow to systematically explore the hyperparameter space and find the best settings for our data.
+
+List of used hyperparameters:
+
+    Linear Regression: 
+    fit_intercept: [True, False],
+ 
+    Decision Tree: 
+    max_depth: [None, 5, 10, 20],
+    min_samples_split: [2, 5, 10],
+    min_samples_leaf: [1, 2, 4]
+  
+    Random Forest: 
+    n_estimators: [50, 100, 200],
+    max_depth: [None, 10, 20],
+    min_samples_split: [2, 5],
+    min_samples_leaf: [1, 2],
+    bootstrap: [True, False]
+  
+    Gradient Boosting: 
+    n_estimators: [50, 100, 200],
+    learning_rate: [0.01, 0.1, 0.2],
+    max_depth: [3, 5, 7]
+    
+    Support Vector Regressor: 
+    C: [0.1, 1, 10],
+    epsilon: [0.01, 0.1, 0.2],
+    kernel: [linear, rbf]
+
+    - **Best Parameters and Evaluation Metrics:**
+
+  We used **Mean Squared Error (MSE)**, and **R-squared** to evaluate model performance.
+
+- Linear Regression         - MSE: 103975174803.5488, R2: 0.510741
+- Decision Tree Best Parameters: 10, min_samples_leaf: 4, min_samples_split: 10
+  
+  Decision Tree: MSE: 97702388957.6151, R2: 0.540257
+  
+- Random Forest Best Parameters: bootstrap: True, max_depth: 10, min_samples_leaf: 2, min_samples_split: 5, n_estimators: 50
+
+  Random Forest MSE: 87429100923.3593, R2: 0.588599
+
+- Gradient Boosting Best Parameters: learning_rate: 0.1, max_depth: 3, n_estimators: 200
+
+  Gradient Boosting         - MSE: 94112950013.0487, R2: 0.557148
+
+- Vector Regressor Best Parameters: C: 10, epsilon: 0.01, kernel: linear
+  
+  Support Vector Regressor  - MSE: 212468456339.3231,R2: 0.000221
+
+  ### **Plot MSE results**
+  
+![image](https://github.com/user-attachments/assets/be8a284e-8323-4812-8056-6805072638c3)
+
+### **Plot R2 results**
+
+![image](https://github.com/user-attachments/assets/fee9d1a2-e8c6-4450-a4d1-97290f75b802)
 
 ### **Results:**
-- **R-squared:** 0.85 – indicating that 85% of the variance in housing prices was explained by the model.
-- **Key Predictors:** Location (borough), property size (square footage), and the number of bedrooms were the most influential factors.
+- **R-squared:** Indicating that depending on the model, 50-59%  of the variance in housing prices was explained by the model.
 - **Model Insights:** The model suggests that proximity to Manhattan and certain high-demand neighborhoods (e.g., Brooklyn) significantly increase property prices.
+- Based on the evaluation, the best model is: **Random Forest with highest R2 score, 0.588599**
+- **Key Predictors:** Location (borough), property size (square footage), and the number of bathrooms were the most influential factors.
+  Our dataset lacks information on the overall number of rooms in the property, encompassing not only bedrooms but also other spaces such as living rooms, dining rooms, and additional rooms. This missing data could impact the model’s accuracy in predicting house prices, as the total number of rooms is a significant feature in real estate valuation.
+
+- **Feature importance:**
+  Feature importance to determine the relevance of each feature in predicting the target variable
+
+  Results before feature aggregation:
+  
+  ![image](https://github.com/user-attachments/assets/07560218-b4ae-4b5d-923f-2084aff8b5da)
+
+Results after feature aggregation:
+
+![image](https://github.com/user-attachments/assets/748a8e82-3abf-4c0e-9fac-3df3ced3684b)
+
+Results after feature aggregation plotted:
+
+![image](https://github.com/user-attachments/assets/e8168092-fd55-4a3d-bc5a-c4f1b8f16070)
 
 ---
 ## **Classification Model and Results**
