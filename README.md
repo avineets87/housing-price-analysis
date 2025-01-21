@@ -167,7 +167,7 @@ The objective of this section is to clean and analyze a real estate dataset. Thi
 
 ### Before Cleaning and After Cleaning:
 ![Data Cleaning Summary](/visualizations/CLean.png)
-
+---
 The data cleaning process successfully removed extreme outliers, standardized column values, and addressed missing data. The cleaned dataset is now ready for deeper analysis or predictive modeling.
 ---
 
@@ -347,7 +347,12 @@ The **Random Forest Classifier** was selected for its robustness and capability 
 2. **Hyperparameter tuning** fine-tuned the model's performance, resulting in higher accuracy and better generalization.
 3. **XGBoost** delivered the best results with perfect accuracy, precision, recall, and F1-scores across all classes.
 
-Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving perfect accuracy of 100%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the ideal choice for this classification task. By utilizing `SQFT_CATEGORY` as the target, the model provides valuable insights into property size zones and their market significance.
+![Confusion Matrix](/visualizations/Classification_Heatmap_matrix.png)
+
+Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving perfect accuracy of 100%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the ideal choice for this classification task. By utilizing `SQFT_CATEGORY` as the target, the model provides valuable insights into property size zones and their market significance as a whole. 
+
+![Performance Summary](/visualizations/Classifcation_Summary_results.png.png)
+
 
 ---
 
