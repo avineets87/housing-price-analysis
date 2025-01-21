@@ -426,7 +426,7 @@ The **Random Forest Classifier** was selected for its robustness and capability 
 
 Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving perfect accuracy of 100%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the ideal choice for this classification task. By utilizing `SQFT_CATEGORY` as the target, the model provides valuable insights into property size zones and their market significance as a whole. 
 
-![Performance Summary](/visualizations/Classifcation_Summary_results.png.png)
+![Performance Summary](/visualizations/Classifcation_Summary_results.png)
 
 
 ---
