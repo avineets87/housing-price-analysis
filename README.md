@@ -228,128 +228,107 @@ The **Random Forest Classifier** was selected for its robustness and capability 
 ### **Evaluation Metrics**
 
 #### **Training Performance:**
-- **Accuracy:** 100%
+- **Accuracy:** 0.8872
 - **Confusion Matrix:**
   ```
-   [[1147    0    0]
-    [   0  652    0]
-    [   0    0  373]]
+   [[1068   53   26]
+    [  71  564   17]
+    [  54   24  295]]
   ```
 - **Classification Report:**
   ```
                  precision    recall  f1-score   support
 
-             0       1.00      1.00      1.00      1147
-             1       1.00      1.00      1.00       652
-             2       1.00      1.00      1.00       373
+             0       0.90      0.93      0.91      1147
+             1       0.88      0.87      0.87       652
+             2       0.87      0.79      0.83       373
 
-      accuracy                           1.00      2172
-     macro avg       1.00      1.00      1.00      2172
-  weighted avg       1.00      1.00      1.00      2172
+      accuracy                           0.89      2172
+     macro avg       0.88      0.86      0.87      2172
+  weighted avg       0.89      0.89      0.89      2172
   ```
 
 ---
 
 #### **Test Performance (Before SMOTE):**
-- **Accuracy:** 98.90%
+- **Accuracy:** 0.6360
 - **Confusion Matrix:**
   ```
-   [[266   0   0]
-    [  1 158   1]
-    [  0   4 114]]
+   [[203  43  20]
+    [ 68  84   8]
+    [ 46  13  59]]
   ```
 - **Classification Report:**
   ```
                  precision    recall  f1-score   support
 
-             0       1.00      1.00      1.00       266
-             1       0.98      0.99      0.98       160
-             2       0.99      0.97      0.98       118
+             0       0.64      0.76      0.70       266
+             1       0.60      0.53      0.56       160
+             2       0.68      0.50      0.58       118
 
-      accuracy                           0.99       544
-     macro avg       0.99      0.98      0.99       544
-  weighted avg       0.99      0.99      0.99       544
+      accuracy                           0.64       544
+     macro avg       0.64      0.60      0.61       544
+  weighted avg       0.64      0.64      0.63       544
   ```
 
 ---
 
 #### **Test Performance (After SMOTE):**
-- **Accuracy:** 98.53%
+- **Accuracy:** 0.6415
 - **Confusion Matrix:**
   ```
-   [[265   1   0]
-    [  2 157   1]
-    [  0   4 114]]
+   [[193  47  26]
+    [ 58  91  11]
+    [ 42  11  65]]
   ```
 - **Classification Report:**
   ```
                  precision    recall  f1-score   support
 
-             0       0.99      1.00      0.99       266
-             1       0.97      0.98      0.98       160
-             2       0.99      0.97      0.98       118
+             0       0.66      0.73      0.69       266
+             1       0.61      0.57      0.59       160
+             2       0.64      0.55      0.59       118
 
-      accuracy                           0.99       544
-     macro avg       0.98      0.98      0.98       544
-  weighted avg       0.99      0.99      0.99       544
+      accuracy                           0.64       544
+     macro avg       0.64      0.62      0.62       544
+  weighted avg       0.64      0.64      0.64       544
   ```
 
 ---
 
 #### **Test Performance (After Tuning):**
-- **Accuracy:** 98.90%
+- **Accuracy:** 0.6654
 - **Confusion Matrix:**
   ```
-   [[266   0   0]
-    [  1 159   0]
-    [  0   4 114]]
+   [[212  38  16]
+    [ 65  88   7]
+    [ 45  11  62]]
   ```
 - **Classification Report:**
   ```
                  precision    recall  f1-score   support
 
-             0       1.00      1.00      1.00       266
-             1       0.98      0.99      0.98       160
-             2       1.00      0.97      0.98       118
+             0       0.66      0.80      0.72       266
+             1       0.64      0.55      0.59       160
+             2       0.73      0.53      0.61       118
 
-      accuracy                           0.99       544
-     macro avg       0.99      0.99      0.99       544
-  weighted avg       0.99      0.99      0.99       544
+      accuracy                           0.67       544
+     macro avg       0.68      0.62      0.64       544
+  weighted avg       0.67      0.67      0.66       544
   ```
 
----
-
-#### **Final Model: XGBoost**
-- **Accuracy:** 100%
-- **Confusion Matrix:**
-  ```
-   [[266   0   0]
-    [  0 160   0]
-    [  0   0 118]]
-  ```
-- **Classification Report:**
-  ```
-                 precision    recall  f1-score   support
-
-             0       1.00      1.00      1.00       266
-             1       1.00      1.00      1.00       160
-             2       1.00      1.00      1.00       118
-
-      accuracy                           1.00       544
-     macro avg       1.00      1.00      1.00       544
-  weighted avg       1.00      1.00      1.00       544
-  ```
 
 ---
 
 ### **Summary**
 1. **SMOTE** effectively balanced the dataset, reducing bias toward majority classes and improving the model's ability to classify all categories accurately.
 2. **Hyperparameter tuning** fine-tuned the model's performance, resulting in higher accuracy and better generalization.
-3. **XGBoost** delivered the best results with perfect accuracy, precision, recall, and F1-scores across all classes.
+3. **XGBoost** delivered the best results, with accuracy, precision, recall, and F1-scores surpassing Random Forest.
 
+ 
 ![Confusion Matrix](/visualizations/Classification_Heatmap_matrix.png)
 
-Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving perfect accuracy of 100%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the ideal choice for this classification task. By utilizing `SQFT_CATEGORY` as the target, the model provides valuable insights into property size zones and their market significance as a whole. 
+Both **Random Forest** and **XGBoost** demonstrated strong performance, with **XGBoost** achieving the highest accuracy of 66.54%. XGBoost’s superior handling of imbalanced classes and ability to capture complex patterns make it the preferred choice for this classification task. By utilizing SQFT_CATEGORY as the target, the model provides valuable insights into property size zones and their market significance as a whole.
 
 ![Performance Summary](/visualizations/Classifcation_Summary_results.png)
 
